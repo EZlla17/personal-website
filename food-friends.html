@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Food & Friends - Mobile App Design - Ella Zhou</title>
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="stylesheet" href="assets/css/case-study.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=Instrument+Sans:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+<body class="case-study">
+
+    <!-- Global Site Header -->
+    <header class="site-header">
+        <div class="site-header-wrapper">
+            <div class="logo">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12 0L14.5 9.5L24 12L14.5 14.5L12 24L9.5 14.5L0 12L9.5 9.5L12 0Z" />
+                </svg>
+                <span><a href="index.html" style="text-decoration: none; color: inherit;">Ella Zhou</a></span>
+            </div>
+            <nav class="nav-links">
+                <a href="index.html#projects">Project</a>
+                <a href="#">Resume</a>
+                <a href="mailto:ellazhou2004@gmail.com" class="contact-btn">
+                    Contact
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
+                    </svg>
+                </a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section: Split Editorial Layout -->
+    <section class="cs-full-hero" id="hero" style="padding-top: var(--space-lg); padding-bottom: var(--space-md);">
+        <div class="cs-hero-split">
+            
+            <div class="cs-hero-text" style="padding-top: 1.5rem;">
+                <h1 class="cs-title">Food & Friends - <br>Mobile App</h1>
+                <p class="cs-subtitle">A mobile app designed to help Cornell students connect over meals, whether in person or virtually. Encouraging social dining while promoting healthy habits.</p>
+                
+                <div class="cs-hero-divider" style="width: 40px; height: 1px; background: var(--color-ink); opacity: 0.15; margin: 2rem 0;"></div>
+                
+                <div class="cs-meta" style="margin-top: 1rem; border-top: none; padding-top: 0; padding-bottom: 0; border-bottom: none; grid-template-columns: 1fr 1fr; gap: var(--space-md) var(--space-xl);">
+                    <div class="meta-item">
+                        <span class="meta-label">Role</span>
+                        <span class="meta-value">App Design / <br>App Prototyping / UIUX</span>
+                    </div>
+                    <div class="meta-item">
+                        <span class="meta-label">Timeline</span>
+                        <span class="meta-value">Aug 2025 - Dec 2025</span>
+                    </div>
+                    <div class="meta-item">
+                        <span class="meta-label">Focus</span>
+                        <span class="meta-value">Community Building | <br>Gamification</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="cs-hero-visual">
+                <div class="placeholder-rect" style="background: rgba(73, 190, 255, 0.05); aspect-ratio: 16/10; border-radius: 28px; position: relative; border: 1px solid rgba(0,0,0,0.02); overflow: hidden; width: 100%;">
+                    <!-- Food & Friends: Aggressive Scale to hide image-file padding -->
+                    <img src="assets/images/food&friends_thumbnail.png" alt="Food & Friends App Visualization" style="width: 100%; height: 100%; object-fit: cover; display: block; transform: scale(1.18);">
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <div class="cs-layout">
+        <aside class="cs-sidebar">
+            <nav class="cs-side-nav">
+                <span class="side-nav-label">Overview</span>
+                <a href="#context" class="side-nav-link active">Background</a>
+                <a href="#research" class="side-nav-link">Research</a>
+                <a href="#problem" class="side-nav-link">Problem</a>
+                <div class="side-nav-divider"></div>
+                <span class="side-nav-label">Process</span>
+                <a href="#solution" class="side-nav-link">Design Concepts</a>
+                <a href="#prototype" class="side-nav-link">Prototyping</a>
+                <div class="side-nav-divider"></div>
+                <a href="#impact" class="side-nav-link">Impacts</a>
+            </nav>
+        </aside>
+
+        <main class="cs-container">
+            
+            <!-- Project Background -->
+        <section class="cs-section" id="context">
+            <h2 class="cs-section-title">Background</h2>
+            <div class="cs-grid-2" style="grid-template-columns: 1.5fr 1fr;">
+                 <div>
+                    <p class="cs-text">Cornell is known for its large campus. Students often live far apart, and lecture buildings are spread out, making it increasingly difficult to coordinate shared meals personally.</p>
+                    <p class="cs-text">Even when students find time, they spend significant effort deciding on where to eat, leading to missed social opportunities.</p>
+                </div>
+                <div class="placeholder-rect sm" style="padding: 0; overflow:hidden;">
+                    <img src="assets/images/cornell_map.png" alt="Cornell Campus Map" style="width:100%; height:100%; object-fit:cover;">
+                </div>
+            </div>
+        </section>
+
+        <!-- Research -->
+        <section class="cs-section" id="research">
+            <h2 class="cs-section-title">Research & Insights</h2>
+            <p class="cs-text lg mb-xl">Conducted 10+ interviews and used affinity diagrams to decode the student dining experience at Cornell.</p>
+            
+            <div class="placeholder-rect md mb-2xl" style="padding: 1.25rem; overflow:hidden; display:flex; justify-content:center; align-items:center; background:oklch(96% 0 0);">
+                <img src="assets/images/food&friends_research.png" alt="Research Affinity Diagram" style="max-width:100%; max-height:100%; object-fit:contain;">
+            </div>
+            
+            <div class="cs-grid-3">
+                <div class="cs-card">
+                    <h3>Proximity Barriers</h3>
+                    <p>Location largely affects students’ eating patterns on campus, dictating choices based on convenience rather than preference.</p>
+                </div>
+                <div class="cs-card">
+                    <h3>Social Commitment</h3>
+                    <p>Students value the connection of social dining but find it difficult to commit to in-person participation every time.</p>
+                </div>
+                <div class="cs-card">
+                    <h3>Health vs. Budget</h3>
+                    <p>A lack of healthy, affordable dining options forces students to compromise on their physical well-being.</p>
+                </div>
+            </div>
+
+            <!-- Persona Highlight -->
+            <div class="mt-2xl">
+                 <div class="cs-editorial-insight" style="padding: 2.5rem; background: var(--color-paper); border-radius: 20px; border: 1px solid rgba(0,0,0,0.05);">
+                    <div class="cs-grid-2" style="grid-template-columns: 120px 1fr; gap: var(--space-xl); align-items: center;">
+                        <div class="placeholder-rect" style="border-radius: 100px; aspect-ratio:1; padding:0; display:flex; justify-content:center; align-items:center; overflow:hidden;">
+                            <img src="assets/images/persona.png" alt="Jane Persona" style="width:100%; height:100%; object-fit:cover;">
+                        </div>
+                        <div>
+                            <span class="cs-qa-label mb-sm">The Persona: Jane</span>
+                            <p class="cs-text" style="font-family: var(--font-display); font-size: 1.25rem; line-height: 1.4; color: var(--color-ink);">"She wants to maintain a healthy lifestyle, maximize time available in the day, and enjoy time with her friends without the burnout of over-planning."</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="cs-section" id="problem">
+            <h2 class="cs-section-title">The Problem</h2>
+            <div class="cs-statement-box" style="border-left: none; background: transparent; padding-left:0;">
+                <p class="cs-statement">Undergraduate Cornell students need to find food options near their daily activities while staying physically healthy and maintaining social connections through eating with friends.</p>
+            </div>
+        </section>
+
+        <!-- High-Level Solution -->
+        <section class="cs-section highlight-bg" id="solution">
+            <h2 class="cs-section-title">Design Concepts</h2>
+            <p class="cs-text mb-lg">Through rapid sketching and brainstorming, we identified four core engagement pillars.</p>
+            
+            <div class="cs-grid-2 mb-xl" style="grid-template-columns: 1.3fr 1fr;">
+                <div class="placeholder-rect md" style="padding: 1.5rem; overflow:hidden; background:oklch(96% 0 0); display:flex; justify-content:center; align-items:center;">
+                    <img src="assets/images/concept_dev.png" alt="Concept Development Sketches" style="max-width:100%; max-height:100%; object-fit:contain;">
+                </div>
+                <div class="placeholder-rect md" style="padding: 1.5rem; overflow:hidden; background:oklch(96% 0 0); display:flex; justify-content:center; align-items:center;">
+                    <img src="assets/images/story_board.png" alt="Storyboard Illustrations" style="max-width:100%; max-height:100%; object-fit:contain;">
+                </div>
+            </div>
+
+            <div class="cs-grid-2">
+                <div class="cs-card step-card">
+                    <span class="step-num">1</span>
+                    <p><strong>Virtual Dining Room:</strong> Coordinate virtual meals when meeting in person isn't possible, fostering social connection regardless of location.</p>
+                </div>
+                <div class="cs-card step-card">
+                    <span class="step-num">2</span>
+                    <p><strong>Restaurant Matching:</strong> Find mutual favorites based on everyone's dietary needs and budget to simplify group decision-making.</p>
+                </div>
+                <div class="cs-card step-card">
+                    <span class="step-num">3</span>
+                    <p><strong>Virtual Companion:</strong> A gamified health tracker that evolves based on your eating habits, encouraging personal well-being.</p>
+                </div>
+                <div class="cs-card step-card">
+                    <span class="step-num">4</span>
+                    <p><strong>Intelligent Search:</strong> Quickly find the perfect dining spot by filtering by calories, proximity, and community ratings.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Prototyping -->
+        <section class="cs-section" id="prototype" style="padding-bottom: 1rem;">
+
+            <h2 class="cs-section-title">Prototyping</h2>
+            
+            <!-- 1. Paper Prototyping -->
+            <div class="mb-3xl">
+                <h3 class="cs-subsection-title">1. Paper Prototyping</h3>
+                <div class="cs-grid-2" style="align-items: center; gap: var(--space-2xl);">
+                    <div class="video-container" style="width: 100%; border-radius: 16px; overflow: hidden; background: #f0f0f0; line-height: 0; box-shadow: 0 10px 30px rgba(0,0,0,0.05);">
+                        <video controls preload="metadata" playsinline style="width: 100%; display: block; filter: brightness(0.98);">
+                            <source src="paper_prototype.MOV" type="video/quicktime">
+                            <source src="paper_prototype.MOV" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
+                    <div>
+                        <p class="cs-text">We started with low-fidelity paper sketches to quickly iterate on core features and get user feedback.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 2. High-Fidelity Prototyping -->
+            <div class="mb-2xl">
+                <h3 class="cs-subsection-title">2. High-Fidelity Prototyping</h3>
+
+                <div class="cs-grid-2" style="align-items: center; gap: var(--space-2xl); margin-bottom: 4rem;">
+                    <div class="placeholder-rect md" style="padding: 1rem; overflow:hidden; background:oklch(96% 0 0); display:flex; justify-content:center; align-items:center;">
+                        <img src="assets/images/avatars.png" alt="Virtual Companions Showcase" style="max-width:100%; max-height:100%; object-fit:contain;">
+                    </div>
+                    <div>
+                        <span class="cs-qa-label mb-md" style="font-weight: 400; opacity: 0.6;">Virtual Companion System</span>
+                        <p class="cs-text" style="font-size: 1.1rem; line-height: 1.7;">We offer users a wide variety of virtual companions to represent themselves in our app, making the app experience more engaging and gamified.</p>
+                    </div>
+                </div>
+
+                <!-- 2x2 Mockup Grid -->
+                <div class="cs-grid-2" style="gap: var(--space-2xl);">
+                    <!-- 1. Virtual Dining Room -->
+                    <div style="text-align: center;">
+                        <span class="cs-qa-label mb-md" style="font-weight: 400; opacity: 0.6;">Virtual Dining Room</span>
+                        <div style="width: 55%; margin: 0 auto;">
+                            <!-- CSS iPhone Frame -->
+                            <div style="position: relative; border: 4px solid #1a1a1a; border-radius: 36px; background: #000; overflow: hidden; box-shadow: 0 10px 40px rgba(0,0,0,0.08); aspect-ratio: 9/19.5;">
+                                 <div class="cs-hover-gif">
+                                     <img src="assets/images/virtual_eating_static.png" alt="Virtual Dining UI Static" class="static-img">
+                                     <img src="assets/images/virtual_eating.gif" alt="Virtual Dining UI GIF" class="gif-overlay">
+                                     <div class="play-indicator">
+                                         <div class="play-indicator-icon"></div>
+                                         <span>Hover to play</span>
+                                     </div>
+                                 </div>
+                                 <!-- Subtle Notch -->
+                                 <div class="cs-iphone-notch"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- 2. Restaurant Matching -->
+                    <div style="text-align: center;">
+                        <span class="cs-qa-label mb-md" style="font-weight: 400; opacity: 0.6;">Restaurant Matching</span>
+                        <div style="width: 55%; margin: 0 auto;">
+                            <!-- CSS iPhone Frame -->
+                            <div style="position: relative; border: 4px solid #1a1a1a; border-radius: 36px; background: #000; overflow: hidden; box-shadow: 0 10px 40px rgba(0,0,0,0.08); aspect-ratio: 9/19.5;">
+                                 <div class="cs-hover-gif">
+                                     <img src="assets/images/restaurant_match_static.png" alt="Restaurant Matching UI Static" class="static-img">
+                                     <img src="assets/images/restaurant_match.gif" alt="Restaurant Matching UI GIF" class="gif-overlay">
+                                     <div class="play-indicator">
+                                         <div class="play-indicator-icon"></div>
+                                         <span>Hover to play</span>
+                                     </div>
+                                 </div>
+                                 <!-- Subtle Notch -->
+                                 <div class="cs-iphone-notch"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- 3. Virtual Companion -->
+                    <div style="text-align: center;">
+                        <span class="cs-qa-label mb-md" style="font-weight: 400; opacity: 0.6;">Virtual Companion</span>
+                        <div style="width: 55%; margin: 0 auto;">
+                            <!-- CSS iPhone Frame -->
+                            <div style="position: relative; border: 4px solid #1a1a1a; border-radius: 36px; background: #000; overflow: hidden; box-shadow: 0 10px 40px rgba(0,0,0,0.08); aspect-ratio: 9/19.5;">
+                                 <div class="cs-hover-gif">
+                                     <img src="assets/images/virtual_companion_static.png" alt="Virtual Companion UI Static" class="static-img">
+                                     <img src="assets/images/virtual_companion.gif" alt="Virtual Companion UI GIF" class="gif-overlay">
+                                     <div class="play-indicator">
+                                         <div class="play-indicator-icon"></div>
+                                         <span>Hover to play</span>
+                                     </div>
+                                 </div>
+                                 <!-- Subtle Notch -->
+                                 <div class="cs-iphone-notch"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- 4. Food Searching -->
+                    <div style="text-align: center;">
+                        <span class="cs-qa-label mb-md" style="font-weight: 400; opacity: 0.6;">Food Searching</span>
+                        <div style="width: 55%; margin: 0 auto;">
+                            <!-- CSS iPhone Frame -->
+                            <div style="position: relative; border: 4px solid #1a1a1a; border-radius: 36px; background: #000; overflow: hidden; box-shadow: 0 10px 40px rgba(0,0,0,0.08); aspect-ratio: 9/19.5;">
+                                 <div class="cs-hover-gif">
+                                     <img src="assets/images/food_searching_static.png" alt="Food Searching UI Static" class="static-img">
+                                     <img src="assets/images/food_search.gif" alt="Food Searching UI GIF" class="gif-overlay">
+                                     <div class="play-indicator">
+                                         <div class="play-indicator-icon"></div>
+                                         <span>Hover to play</span>
+                                     </div>
+                                 </div>
+                                 <!-- Subtle Notch -->
+                                 <div class="cs-iphone-notch"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        </section>
+
+
+
+        <!-- Impacts -->
+        <section class="cs-section" id="impact" style="padding-top: 1rem;">
+            <h2 class="cs-section-title">Project Impacts</h2>
+            <div class="cs-statement-box" style="border-left-color: var(--color-accent);">
+                <p class="cs-statement"><strong>Best Design Award:</strong> We received the Best Design Award out of 40 competing groups in the Cornell design exhibition.</p>
+            </div>
+            
+            <p class="cs-text mt-xl">Leading the design for this multidisciplinary team was a rewarding experience, guiding teammates through conceptual aesthetics, prototyping, and the iterative feedback loops of high-fidelity design.</p>
+            
+        </section>
+
+    </main>
+    </div>
+
+    <!-- Global Footer -->
+    <footer class="site-footer is-minimal">
+        <div class="footer-bottom">
+            <div class="footer-left">
+                <p>&copy; 2026 Ella Zhou. All rights reserved.</p>
+            </div>
+            <div class="footer-right">
+                <a href="https://www.linkedin.com/in/xinyi-zhou-ella/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+                <a href="mailto:ellazhou2004@gmail.com">Email</a>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- Image Zoom Modal -->
+    <div id="imageZoomModal" class="cs-modal-overlay" onclick="closeZoomModal(event)">
+        <div class="cs-modal-content">
+            <button class="cs-modal-close" onclick="closeZoomModal(event, true)">
+                <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+            </button>
+            <img id="imageZoomSrc" src="" alt="Zoomed View" onclick="event.stopPropagation()">
+        </div>
+    </div>
+
+    <script src="assets/js/nav.js"></script>
+</body>
+</html>

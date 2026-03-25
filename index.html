@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ella Zhou - Personal Website</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300;1,400&family=Instrument+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/styles.css?v=1.3">
+</head>
+<body>
+    <div class="grain-overlay" aria-hidden="true"></div>
+
+    <!-- Global Site Header -->
+    <header class="site-header">
+        <div class="site-header-wrapper">
+            <div class="logo">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12 0L14.5 9.5L24 12L14.5 14.5L12 24L9.5 14.5L0 12L9.5 9.5L12 0Z" />
+                </svg>
+                <span><a href="index.html" style="text-decoration: none; color: inherit;">Ella Zhou</a></span>
+            </div>
+            <nav class="nav-links">
+                <a href="index.html#projects">Project</a>
+                <a href="#">Resume</a>
+                <a href="mailto:ellazhou2004@gmail.com" class="contact-btn">
+                    Contact
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
+                    </svg>
+                </a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="hero-section">
+        <canvas id="particle-canvas"></canvas>
+        <div class="content-wrapper">
+            <div class="title-group">
+                <h1 class="fade-in">I’m <span class="ink-text">Ella Zhou</span></h1>
+                <h2 class="fade-in delay-1">I’m a <span id="role-innovator" class="role-highlight active">product innovator</span> & <span id="role-prototyper" class="role-highlight">AI prototyper</span>.</h2>
+            </div>
+            <div class="desc-group fade-in delay-2">
+                <p>Specializes in SaaS and AI design innovation, focusing on human-AI interactions that enhance efficiency and user experience. Formerly at Alibaba Group.</p>
+            </div>
+            <div class="social-links fade-in delay-3">
+                <a href="https://www.linkedin.com/in/xinyi-zhou-ella/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+                <span class="separator" aria-hidden="true">/</span>
+                <a href="mailto:ellazhou2004@gmail.com">Email</a>
+            </div>
+        </div>
+
+        <a href="#projects" class="scroll-indicator fade-in delay-3">
+            <div class="arrow-circle">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="m7 10 5 5 5-5"/>
+                </svg>
+            </div>
+            <span class="projects-label">Projects</span>
+            <div class="horizontal-line"></div>
+        </a>
+    </main>
+    <section id="projects" class="projects-section">
+        <div class="projects-container">
+            <!-- Project 1: Alibaba -->
+            <a href="./alibaba.html" style="text-decoration: none; color: inherit; display: block;" class="project-link">
+                <div class="project-item">
+                    <div class="project-info">
+                        <h3>AI-driven User Flow Generation Tool</h3>
+                        <div class="project-meta">
+                            <div class="meta-item">
+                                <span class="meta-label">Role</span>
+                                <span class="meta-value">Alibaba | AI Product Intern</span>
+                            </div>
+                            <div class="meta-item">
+                                <span class="meta-label">Year</span>
+                                <span class="meta-value">2025</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-visual">
+                        <div class="project-placeholder ai-flow-placeholder">
+                            <div class="hero-video-wrapper card-thumb">
+                                <img src="assets/images/alibaba_demo_video.gif" alt="AI User Flow Project Thumbnail" class="hero-video-gif">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </a>
+
+            <!-- Project 2 (Former Project 4): Cosmo AI -->
+            <a href="./cosmo-ai.html" style="text-decoration: none; color: inherit; display: block;" class="project-link">
+                <div class="project-item">
+                    <div class="project-info">
+                        <h3>AI-Driven Mac Desktop Experience</h3>
+                        <div class="project-meta">
+                            <div class="meta-item">
+                                <span class="meta-label">Role</span>
+                                <span class="meta-value">Cosmo | AI Product Owner</span>
+                            </div>
+                            <div class="meta-item">
+                                <span class="meta-label">Year</span>
+                                <span class="meta-value">2024 - Present</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-visual">
+                        <div class="project-placeholder cs-vision-placeholder" style="background: oklch(99% 0 0); position: relative; overflow: hidden;">
+                            <div class="layered-ambient-atmosphere"></div>
+                            
+                            <div class="hero-viz-container">
+                                <div class="viz-thumbnail-scale" style="display: flex; flex-direction: column; align-items: center; justify-content: center; width: 100%; height: 100%; gap: 1.5rem;">
+                                    <div class="hero-command-bar">
+                                        <span style="font-size: 0.85rem; color: var(--color-ink); opacity: 0.6;">what you want to do today</span>
+                                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" opacity="0.4">
+                                            <circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/>
+                                        </svg>
+                                    </div>
+
+                                    <div class="hero-widget-fan" style="position: relative; height: 220px; width: 100%; margin-top: 0.5rem;">
+                                        <!-- Fan Arc Layering -->
+                                        <div class="viz-card github" style="position: absolute; left: 50%; margin-left: -80px;">
+                                            <span class="viz-card-header">GitHub Status</span>
+                                            <span style="font-size: 0.75rem; color: #7c3aed; font-weight: 700;">#402 Merged</span>
+                                            <div style="margin-top: 8px; height: 4px; background: #f3e8ff; width: 100%;"></div>
+                                        </div>
+                                        
+                                        <div class="viz-card focus" style="position: absolute; left: 50%; margin-left: -80px;">
+                                            <span class="viz-card-header">Current Focus</span>
+                                            <div class="viz-card-accent" style="width: 8px; height: 8px; margin-bottom: 4px;"></div>
+                                            <span style="font-size: 1.1rem; font-weight: 700; color: var(--color-ink);">24:00</span>
+                                            <span style="font-size: 0.5rem; opacity: 0.5;">Deep Work</span>
+                                        </div>
+
+                                        <div class="viz-card news" style="position: absolute; left: 50%; margin-left: -320px;">
+                                            <span class="viz-card-header">World News</span>
+                                            <div style="height: 4px; background: #eee; width: 80%; margin-bottom: 6px;"></div>
+                                            <div style="height: 4px; background: #eee; width: 100%; margin-bottom: 6px;"></div>
+                                        </div>
+
+                                        <div class="viz-card stock" style="position: absolute; left: 50%; margin-left: -85px;">
+                                            <span class="viz-card-header">Real-time Stocks</span>
+                                            <div class="viz-card-accent" style="background: #22c55e; box-shadow: 0 0 10px rgba(34, 197, 94, 0.4);"></div>
+                                            <span style="font-size: 1.4rem; font-weight: 700; color: #1a1a1a;">AAPL +2.4%</span>
+                                        </div>
+
+                                        <div class="viz-card paint" style="position: absolute; left: 50%; margin-left: 170px;">
+                                            <span class="viz-card-header">Art Reference</span>
+                                            <div style="flex: 1; background: oklch(95% 0.05 180); border-radius: 4px; border: 1px dashed rgba(0,0,0,0.1);"></div>
+                                            <span style="font-size: 0.6rem; margin-top: 4px; opacity: 0.5;">Monet's Garden</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </a>
+
+            <!-- Project 3 (Former Project 2): Cosmo I -->
+            <a href="./cosmo.html" style="text-decoration: none; color: inherit; display: block;" class="project-link">
+                <div class="project-item">
+                    <div class="project-info">
+                        <h3>Desktop Customization App</h3>
+                        <div class="project-meta">
+                            <div class="meta-item">
+                                <span class="meta-label">Role</span>
+                                <span class="meta-value">Cosmo | Product Designer</span>
+                            </div>
+                            <div class="meta-item">
+                                <span class="meta-label">Year</span>
+                                <span class="meta-value">2023</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-visual">
+                        <div class="project-placeholder">
+                            <img src="assets/images/project2_thumbnail.png" alt="Desktop Customization App Thumbnail" class="project-thumbnail">
+                        </div>
+                    </div>
+                </div>
+            </a>
+
+
+            <!-- Project 4 (Former Project 3): Food and Friends -->
+            <a href="./food-friends.html" class="project-link">
+                <div class="project-item">
+                    <div class="project-info">
+                        <h3>Cornell HCI Competition (Best Design)</h3>
+                        <div class="project-meta">
+                            <div class="meta-item">
+                                <span class="meta-label">Role</span>
+                                <span class="meta-value">Product Design Lead</span>
+                            </div>
+                            <div class="meta-item">
+                                <span class="meta-label">Year</span>
+                                <span class="meta-value">2025</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-visual">
+                        <div class="project-placeholder">
+                            <img src="assets/images/food&friends_thumbnail.png" alt="Cornell HCI Competition Thumbnail" class="project-thumbnail">
+                        </div>
+                    </div>
+                </div>
+            </a>
+
+        </div>
+    </section>
+
+    <!-- Global Footer -->
+    <footer class="site-footer">
+        <div class="footer-particle-container">
+            <canvas id="footer-particle-canvas"></canvas>
+        </div>
+        <div class="footer-bottom">
+            <div class="footer-left">
+                <p>&copy; 2026 Ella Zhou. All rights reserved.</p>
+            </div>
+            <div class="footer-right">
+                <a href="https://www.linkedin.com/in/xinyi-zhou-ella/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+                <a href="mailto:ellazhou2004@gmail.com">Email</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="assets/js/nav.js?v=1.3"></script>
+    <script src="assets/js/script.js?v=1.3"></script>
+    <script src="assets/js/footer-particles.js?v=1.3"></script>
+</body>
+</html>

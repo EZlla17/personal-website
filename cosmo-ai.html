@@ -1,0 +1,678 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI-Driven Mac Desktop Experience - Ella Zhou</title>
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="stylesheet" href="assets/css/case-study.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=Instrument+Sans:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            /* Project-specific accent: Vibrant Rose Pink */
+            --color-project-accent: oklch(60% 0.25 350); 
+        }
+        
+        /* Specialized styling for Solution one link */
+        .doc-link-card {
+            background: oklch(98% 0 0);
+            border: 1px solid rgba(0,0,0,0.06);
+            padding: var(--space-lg);
+            border-radius: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            text-decoration: none;
+            color: inherit;
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            margin-top: var(--space-xl);
+        }
+        
+        .doc-link-card:hover {
+            transform: translateY(-4px);
+            background: white;
+            box-shadow: 0 12px 30px rgba(0,0,0,0.06);
+            border-color: var(--color-project-accent);
+        }
+        
+        .doc-link-info {
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+        }
+        
+        .doc-link-label {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            color: var(--color-ash);
+            font-weight: 600;
+        }
+        
+        .doc-link-title {
+            font-size: 1.2rem;
+            font-family: var(--font-display);
+            font-weight: 500;
+            color: var(--color-ink);
+            transition: color 0.3s ease;
+        }
+
+        .doc-link-action {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .click-indicator {
+            font-size: 0.7rem;
+            font-weight: 700;
+            color: oklch(60% 0.25 350);
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            opacity: 0;
+            transform: translateX(8px);
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .doc-link-card:hover .click-indicator {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .doc-link-card:hover .doc-link-title {
+            color: oklch(60% 0.25 350);
+        }
+
+        .doc-link-icon {
+            color: var(--color-ash);
+            transition: all 0.3s ease;
+        }
+        
+        .doc-link-card:hover .doc-link-icon {
+            color: white;
+            transform: scale(1.1);
+        }
+
+        /* Ping Delight Animation */
+        .delightful-trigger {
+            position: relative;
+        }
+
+        .delightful-trigger::after {
+            content: '';
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            width: 6px;
+            height: 6px;
+            background: oklch(60% 0.25 350);
+            border-radius: 50%;
+            animation: ping-rose 2.5s infinite;
+        }
+
+        @keyframes ping-rose {
+            0% { box-shadow: 0 0 0 0 oklch(60% 0.25 350 / 0.7); }
+            70% { box-shadow: 0 0 0 12px oklch(60% 0.25 350 / 0); }
+            100% { box-shadow: 0 0 0 0 oklch(60% 0.25 350 / 0); }
+        }
+        
+        .doc-link-icon {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background: var(--color-project-accent); /* Rose Pink */
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        /* Beta Badge */
+        .beta-badge {
+            background: var(--color-project-accent);
+            color: white;
+            font-size: 0.65rem;
+            padding: 2px 10px;
+            border-radius: 99px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            font-weight: 700;
+            margin-left: 8px;
+            vertical-align: middle;
+            animation: beta-glow 3s infinite alternate;
+        }
+
+        @keyframes beta-glow {
+            from { box-shadow: 0 0 0px var(--color-project-accent); }
+            to { box-shadow: 0 0 12px var(--color-project-accent); }
+        }
+
+        /* Precision Perimeter Tracking Animation */
+        @keyframes bar-track {
+            0%   { left: 0%;   top: 0%;    transform: translate(-50%, -50%); }
+            43%  { left: 100%; top: 0%;    transform: translate(-50%, -50%); }
+            50%  { left: 100%; top: 100%;  transform: translate(-50%, -50%); }
+            93%  { left: 0%;   top: 100%;  transform: translate(-50%, -50%); }
+            100% { left: 0%;   top: 0%;    transform: translate(-50%, -50%); }
+        }
+
+        /* Hero Visualization Styles */
+        .hero-viz-container {
+            position: absolute;
+            inset: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 1.5rem;
+            overflow: hidden;
+            z-index: 5;
+        }
+
+        .hero-command-bar {
+            position: relative;
+            width: 70%;
+            padding: 0.75rem 1.25rem;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            box-shadow: 0 10px 40px -10px rgba(0,0,0,0.08);
+            transform: translateY(0px);
+            opacity: 0.95;
+            z-index: 5;
+            background: transparent; /* Changed to transparent to avoid bleed */
+            /* Tracking Border Container */
+            overflow: hidden;
+        }
+
+        .hero-command-bar::before {
+            content: "";
+            position: absolute;
+            width: 100px;
+            height: 40px;
+            background: radial-gradient(circle, oklch(65% 0.25 350) 0%, oklch(60% 0.2 300) 50%, transparent 100%);
+            filter: blur(8px);
+            opacity: 0.6;
+            animation: bar-track 4s linear infinite;
+            z-index: -2;
+            pointer-events: none;
+        }
+
+        .hero-command-bar::after {
+            content: "";
+            position: absolute;
+            inset: 2px; /* Slight border width */
+            background: rgba(255, 255, 255, 1); /* Solid white to mask center */
+            backdrop-filter: blur(20px);
+            border-radius: 10px;
+            z-index: -1;
+        }
+
+        .hero-widget-fan {
+            display: flex;
+            justify-content: center;
+            align-items: flex-end;
+            gap: 1.5rem;
+            width: 100%;
+            transform: translateY(10px); /* Pull up slightly */
+        }
+
+        .viz-card {
+            background: white;
+            border-radius: 16px;
+            padding: 1rem;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.05);
+            border: 1px solid rgba(0,0,0,0.03);
+            width: 140px;
+            height: 160px;
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.4s ease;
+        }
+
+        .viz-card.news { transform: rotate(-25deg) translateY(60px) translateX(20px); z-index: 1; opacity: 0.8; width: 140px; }
+        .viz-card.github { transform: rotate(-12deg) translateY(0px) translateX(-110px); z-index: 10; opacity: 1; }
+        .viz-card.stock { transform: scale(1.1) translateY(10px); z-index: 20; width: 160px; box-shadow: 0 15px 45px rgba(0,0,0,0.1); }
+        .viz-card.focus { transform: rotate(12deg) translateY(0px) translateX(110px); z-index: 10; opacity: 1; }
+        .viz-card.paint { transform: rotate(25deg) translateY(60px) translateX(-20px); z-index: 1; opacity: 0.8; width: 140px; }
+
+        .viz-card-header {
+            font-size: 0.65rem;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            font-weight: 700;
+            color: var(--color-ash);
+            margin-bottom: 0.5rem;
+        }
+
+        .viz-card-accent {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: var(--color-project-accent);
+            margin-bottom: 0.75rem;
+        }
+    </style>
+</head>
+<body class="case-study">
+
+    <!-- Global Site Header -->
+    <header class="site-header">
+        <div class="site-header-wrapper">
+            <div class="logo">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12 0L14.5 9.5L24 12L14.5 14.5L12 24L9.5 14.5L0 12L9.5 9.5L12 0Z" />
+                </svg>
+                <span><a href="index.html" style="text-decoration: none; color: inherit;">Ella Zhou</a></span>
+            </div>
+            <nav class="nav-links">
+                <a href="index.html#projects">Project</a>
+                <a href="#">Resume</a>
+                <a href="mailto:ellazhou2004@gmail.com" class="contact-btn">
+                    Contact
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
+                    </svg>
+                </a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section: Split Editorial Layout -->
+    <section class="cs-full-hero" id="hero" style="padding-top: var(--space-lg); padding-bottom: var(--space-md);">
+        <div class="cs-hero-split">
+            
+            <div class="cs-hero-text" style="padding-top: 1.5rem;">
+                <h1 class="cs-title">AI-Driven Mac Desktop <br><span class="cs-title-phase">Phase II</span></h1>
+                <p class="cs-subtitle">Reimagining the Mac desktop as an intelligent workspace through AI-driven creation and interaction.</p>
+                <div class="cs-hero-divider" style="width: 40px; height: 1px; background: var(--color-ink); opacity: 0.15; margin: 2rem 0;"></div>
+                
+                <div class="cs-meta" style="margin-top: 1rem; border-top: none; padding-top: 0; padding-bottom: 0; border-bottom: none; grid-template-columns: 1fr 1fr; gap: var(--space-md) var(--space-xl);">
+                    <div class="meta-item">
+                        <span class="meta-label">Role</span>
+                        <span class="meta-value">AI Prototyping, <br>Product Designer</span>
+                    </div>
+                    <div class="meta-item">
+                        <span class="meta-label">Timeline</span>
+                        <span class="meta-value">2024 - present <br>(Part-time)</span>
+                    </div>
+                    <div class="meta-item">
+                        <span class="meta-label">Company</span>
+                        <span class="meta-value">Cosmo Inc.</span>
+                    </div>
+                    <div class="meta-item">
+                        <span class="meta-label">Team</span>
+                        <span class="meta-value">2 Developers, <br>2 marketers, Ella</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="cs-hero-visual" style="width: 100%;">
+                <div class="placeholder-rect" style="background: oklch(99% 0 0); aspect-ratio: 16/10; border-radius: 36px; position: relative; border: 1px solid rgba(0,0,0,0.06); overflow: hidden; display: flex; align-items: center; justify-content: center; width: 100%;">
+                    <!-- Layered Ambient Atmosphere -->
+                    <div class="layered-ambient-atmosphere"></div>
+                    
+                    <div class="hero-viz-container">
+                        <div class="hero-command-bar">
+                            <span style="font-size: 0.85rem; color: var(--color-ink); opacity: 0.6;">what you want to do today</span>
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" opacity="0.4">
+                                <circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/>
+                            </svg>
+                        </div>
+
+                        <div class="hero-widget-fan" style="position: relative; height: 220px; width: 100%; margin-top: 0.5rem;">
+                            <!-- Fan Arc Layering -->
+                            <div class="viz-card github" style="position: absolute; left: 50%; margin-left: -80px;">
+                                <span class="viz-card-header">GitHub Status</span>
+                                <span style="font-size: 0.75rem; color: #7c3aed; font-weight: 700;">#402 Merged</span>
+                                <div style="margin-top: 8px; height: 4px; background: #f3e8ff; width: 100%;"></div>
+                            </div>
+                            
+                            <div class="viz-card focus" style="position: absolute; left: 50%; margin-left: -80px;">
+                                <span class="viz-card-header">Current Focus</span>
+                                <div class="viz-card-accent" style="width: 8px; height: 8px; margin-bottom: 4px;"></div>
+                                <span style="font-size: 1.1rem; font-weight: 700; color: var(--color-ink);">24:00</span>
+                                <span style="font-size: 0.5rem; opacity: 0.5;">Deep Work Session</span>
+                            </div>
+
+                            <div class="viz-card news" style="position: absolute; left: 50%; margin-left: -320px;">
+                                <span class="viz-card-header">World News</span>
+                                <div style="height: 4px; background: #eee; width: 80%; margin-bottom: 6px;"></div>
+                                <div style="height: 4px; background: #eee; width: 100%; margin-bottom: 6px;"></div>
+                                <div style="height: 4px; background: #eee; width: 60%;"></div>
+                            </div>
+
+                            <div class="viz-card stock" style="position: absolute; left: 50%; margin-left: -85px;">
+                                <span class="viz-card-header">Real-time Stocks</span>
+                                <div class="viz-card-accent" style="background: #22c55e; box-shadow: 0 0 10px rgba(34, 197, 94, 0.4);"></div>
+                                <span style="font-size: 1.4rem; font-weight: 700; color: #1a1a1a;">AAPL +2.4%</span>
+                                <span style="font-size: 0.6rem; opacity: 0.5; margin-top: auto;">NASDAQ Exchange</span>
+                            </div>
+
+                            <div class="viz-card paint" style="position: absolute; left: 50%; margin-left: 170px;">
+                                <span class="viz-card-header">Art Reference</span>
+                                <div style="flex: 1; background: oklch(95% 0.05 180); border-radius: 4px; border: 1px dashed rgba(0,0,0,0.1);"></div>
+                                <span style="font-size: 0.6rem; margin-top: 4px; opacity: 0.5;">Monet's Garden</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <div class="cs-layout">
+        <aside class="cs-sidebar">
+            <!-- Sidebar Navigation omitted for brevity, it stays the same -->
+            <nav class="cs-side-nav">
+                <span class="side-nav-label">Overview</span>
+                <a href="#problems" class="side-nav-link active">The Problem</a>
+                <a href="#opportunities" class="side-nav-link">Opportunities</a>
+                <div class="side-nav-divider"></div>
+                <span class="side-nav-label">Process</span>
+                <a href="#insight" class="side-nav-link">Design Insight</a>
+                <a href="#solution-1" class="side-nav-link">AI Widget Guide</a>
+                <a href="#solution-2" class="side-nav-link">AI Desktop Agent</a>
+                <div class="side-nav-divider"></div>
+                <a href="#reflection" class="side-nav-link">Reflection</a>
+            </nav>
+        </aside>
+
+        <main class="cs-container">
+            
+            <!-- 2. Project Overview -->
+            <section class="cs-section" id="overview">
+                <h2 class="cs-section-title">Overview</h2>
+                <div style="max-width: 800px;">
+                    <p class="cs-text">In <a href="cosmo.html" class="cs-phase-link">Phase I</a>, we focused on creating an intuitive platform to manage diverse personalization resources. As we researched the broader desktop experience, we found that the challenge goes beyond customization.</p>
+                </div>
+            </section>
+
+            <!-- 3. Problem Space -->
+            <section class="cs-section" id="problems">
+                <div style="max-width: 900px; margin: 0 auto;">
+                    <h2 class="cs-section-title">The Problem</h2>
+                    <div class="cs-grid-2">
+                        <div class="cs-card">
+                            <h4 style="color: var(--color-ink);">01. Technical Barriers</h4>
+                            <p class="cs-text">Many customization enthusiasts have strong ideas but lack the coding skills needed to build widgets. Framworks, project structures, and deployment workflows make creation inaccessible to non-technical users.</p>
+                        </div>
+                        <div class="cs-card">
+                            <h4 style="color: var(--color-ink);">02. Fragmented Workflows</h4>
+                            <p class="cs-text">Information is spread across apps, browser tabs, and desktop surfaces. Navigation is inefficient, and the desktop quickly becomes visually messy and cognitively overwhelming.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 4. Design Opportunities -->
+            <section class="cs-section" id="opportunities">
+                <div style="max-width: 900px; margin: 0 auto;">
+                    <h2 class="cs-section-title">Opportunities</h2>
+                    <p class="cs-text mb-xl">Analyzing these problems led us to define two major strategic opportunities for the next evolution of the desktop:</p>
+                    <div class="cs-grid-2">
+                        <div class="cs-card">
+                            <div class="cs-num-badge">1</div>
+                            <h4 style="font-size: 1.1rem; color: var(--color-ink);">Non-Technical Creation</h4>
+                            <p class="cs-text sm">Enable users to create their own desktop features without needing to code.</p>
+                        </div>
+                        <div class="cs-card highlight">
+                            <div class="cs-num-badge">2</div>
+                            <h4 style="font-size: 1.1rem; color: var(--color-ink);">Intelligent Navigation</h4>
+                            <p class="cs-text sm">Improve desktop-level information navigation through AI integration.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 4. Design Insight -->
+            <section class="cs-section highlight-bg" id="insight">
+                <div style="max-width: 900px; margin: 0 auto;">
+                    <h2 class="cs-section-title">Design Insight</h2>
+                    <p class="cs-text lg" style="font-family: var(--font-body); font-style: normal; font-size: 1.12rem; color: var(--color-ink); border-left: 3px solid oklch(60% 0.25 350); padding-left: 1.5rem; line-height: 1.7;">As AI improves in understanding natural language, reasoning through tasks, and handling execution, people no longer need to translate their intent into technical systems or fragmented workflows. AI can instead act as the bridge between what users want and how the system carries it out.</p>
+
+                    <!-- Strategic Blueprint -->
+                    <div class="cs-blueprint-box" style="background: #fff; border-radius: 24px; box-shadow: 0 10px 40px rgba(0,0,0,0.04); border: 1px solid rgba(0,0,0,0.04);">
+                        <h3 style="font-family: var(--font-body); font-weight: 700; font-size: 1.25rem; margin-bottom: 1.25rem; color: var(--color-accent);">Future Blueprint</h3>
+                        <p class="cs-text" style="font-size: 1rem; line-height: 1.7; color: var(--color-ink);">Transition from a simple customization tool to an <strong>AI-driven</strong>, <strong>intelligent</strong>, and <strong>adaptive desktop ecosystem</strong>.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 5. Solution One — AI Widget Creation Guide -->
+            <section class="cs-section" id="solution-1">
+                <span class="cs-tag">Part 1</span>
+                <h2 class="cs-section-title">Lowering the Barrier to Creation</h2>
+                <p class="cs-text">To address the first problem, we created the <strong>AI Widget Creation Guide</strong> — a strategic framework that translates user needs, platform rules, and interaction principles into a structured guide that enables AI to turn natural-language ideas into usable desktop widgets.</p>
+                
+                <div class="cs-grid-2 mt-xl" style="align-items: center;">
+                    <div>
+                        <p class="cs-text">The purpose of this document is to remove technical barriers. Instead of asking users to understand the tech stack, we provide structured context directly to AI. Users can simply describe their ideas in natural language, and the AI handles:</p>
+                        <ul class="cs-list mt-md">
+                            <li><strong>Intent interpretation</strong> from natural language</li>
+                            <li><strong>Widget layout generation</strong> with system styling</li>
+                            <li><strong>Technical implementation</strong> details</li>
+                            <li><strong>Deployment</strong> to the live desktop environment</li>
+                        </ul>
+                    </div>
+                    <div style="display: flex; align-items: center; justify-content: center;">
+                         <img src="assets/images/AI_widget_Creation_Guide.png" alt="AI Widget Creation Guide Framework" style="max-width: 100%; height: auto; border-radius: 24px; box-shadow: 0 20px 50px rgba(0,0,0,0.05);">
+                    </div>
+                </div>
+
+                <div class="mt-2xl">
+                    <p class="cs-text">This shifts widget creation from a <strong>coding task</strong> into a <strong>communication task</strong>. Users no longer need to think in terms of files; they only need to express what they want to make.</p>
+                </div>
+
+                <a href="https://www.buildcosmo.com/docs/getting-started/introduction" target="_blank" class="doc-link-card delightful-trigger">
+                    <div class="doc-link-info">
+                        <span class="doc-link-label">Skill Document</span>
+                        <span class="doc-link-title">AI Widget Creation Guide (v1.0)</span>
+                    </div>
+                    <div class="doc-link-action">
+                        <span class="click-indicator">View Source</span>
+                        <div class="doc-link-icon">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                                <polyline points="15 3 21 3 21 9"></polyline>
+                                <line x1="10" y1="14" x2="21" y2="3"></line>
+                            </svg>
+                        </div>
+                    </div>
+                </a>
+            </section>
+
+            <!-- 6. How People Use the Guide -->
+            <section class="cs-section" id="usage" style="padding-top: 0;">
+                <div class="cs-bg-white" style="max-width: 800px; margin-left: auto; margin-right: auto;">
+                    <h3 class="cs-subsection-title">How It Works in Practice</h3>
+                    
+                    <!-- No-Card Generation Flow -->
+                    <div id="genSimulator" style="position: relative; margin-top: var(--space-sm);">
+                        <div class="simulator-controls" style="position: absolute; top: -3.2rem; right: 0;">
+                            <div class="control-dot active" data-index="0"></div>
+                            <div class="control-dot" data-index="1"></div>
+                        </div>
+                        
+                        <div class="cs-grid-2" style="gap: var(--space-3xl); align-items: center;">
+                            <!-- Prompt Side -->
+                            <div style="display: flex; align-items: center;">
+                                 <p class="cs-text generation-prompt" id="promptText" style="text-align: left; max-width: none; font-size: 1.05rem; line-height: 1.5; color: var(--color-ink); opacity: 0.75; font-style: italic; border-left: 2px solid var(--color-project-accent); padding-left: 1.5rem;">"Create a minimalist clock widget with a pixel cat that I can interact with as it walks."</p>
+                            </div>
+
+                            <!-- Result Side -->
+                            <div style="display: flex; align-items: center; justify-content: center; width: 100%; max-width: 420px;">
+                                  <img src="assets/images/cat_widget.gif" id="resultGif" alt="AI Workspace Generation" class="generation-result-img active" style="width: 100%; height: 280px; transition: all 1.2s cubic-bezier(0.16, 1, 0.3, 1); object-fit: contain; border-radius: 24px;">
+                            </div>
+                        </div>
+                    </div>
+                </div> <!-- End .cs-bg-white -->
+
+                <div class="mt-2xl" style="max-width: 900px; margin-left: auto; margin-right: auto;">
+                    <h3 class="cs-subsection-title">Works from Our Users</h3>
+                    <div class="cs-grid-2">
+                        <a href="https://www.reddit.com/r/tron/comments/1qxzt5d/tron_ares_styled_desktop_i_made/" target="_blank" rel="noopener noreferrer" class="doc-link-card" style="margin-top: 0;">
+                            <div class="doc-link-info">
+                                <span class="doc-link-title" style="font-size: 1.1rem;">Tron: Ares Styled Desktop</span>
+                            </div>
+                            <div class="doc-link-icon" style="width: 36px; height: 36px;">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                            </div>
+                        </a>
+                        <a href="https://www.reddit.com/r/desktops/comments/1qeocxt/rate_my_macos_forest_ghibli_aesthetic/" target="_blank" rel="noopener noreferrer" class="doc-link-card" style="margin-top: 0;">
+                            <div class="doc-link-info">
+                                <span class="doc-link-title" style="font-size: 1.1rem;">Forest Ghibli Aesthetic</span>
+                            </div>
+                            <div class="doc-link-icon" style="width: 36px; height: 36px;">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 7. Solution Two — Desktop-Level Information Navigation -->
+            <section class="cs-section" id="solution-2">
+                <div style="max-width: 900px; margin: 0 auto;">
+                    <span class="cs-tag">Part 2</span>
+                    <h2 class="cs-section-title">AI Desktop Agent</h2>
+                    <p class="cs-text lg">How could the desktop become a more intelligent interface for getting things done, instead of just a place where windows and files accumulate?</p>
+                    <p class="cs-text mt-md">To explore this, we introduced a desktop-level AI agent approach through <strong>Cosmo Commands</strong>.</p>
+                </div>
+            </section>
+
+            <!-- 8. Cosmo Commands (Beta) -->
+            <section class="cs-section" id="commands" style="padding-top: 0;">
+                <div style="max-width: 900px; margin: 0 auto;">
+                    <h3 class="cs-subsection-title">Cosmo Commands <span class="beta-badge">Beta</span></h3>
+                    <div class="cs-grid-2" style="align-items: center; gap: var(--space-2xl);">
+                        <div>
+                            <p class="cs-text">Instead of navigating through layers of apps, users can simply describe what they want to do. Cosmo then handles the steps and returns the result as a clean widget directly on the desktop.</p>
+                            
+                            <div class="mt-xl">
+                                 <div class="mb-lg">
+                                    <h4 style="font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--color-project-accent); font-weight: 700;">✨ AI Automation</h4>
+                                    <p class="cs-text sm">Automates navigation through browser sessions and returns exactamente what you need as a clean widget UI.</p>
+                                 </div>
+                                 <div>
+                                    <h4 style="font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--color-project-accent); font-weight: 700;">🤖 LLM Integration</h4>
+                                    <p class="cs-text sm">Chat with ChatGPT, Claude, or Gemini directly from the desktop without constantly switching between tabs and apps.</p>
+                                 </div>
+                            </div>
+                        </div>
+                        <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 1rem; padding: 1rem 0;">
+                             <div style="width: 100%; max-width: 480px; border-radius: 20px; overflow: hidden; box-shadow: 0 20px 50px rgba(0,0,0,0.1); border: 1px solid rgba(0,0,0,0.05); background: #000;">
+                                <video controls playsinline style="width: 100%; display: block;" src="assets/videos/CosmoSimpleDemoFinalOne.m4v">
+                                    Your browser does not support the video tag.
+                                </video>
+                             </div>
+                             <p style="font-size: 0.85rem; color: var(--color-ink); opacity: 0.5; font-family: var(--font-body); letter-spacing: 0.05em; text-transform: uppercase;">check beta prototype</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 9. Product Vision -->
+            <!-- 9. Product Vision -->
+
+            <!-- 10. Reflection / What I Learned -->
+            <section class="cs-section" id="reflection">
+                <div style="max-width: 900px; margin: 0 auto;">
+                    <h2 class="cs-section-title">Reflection</h2>
+                    <p class="cs-text" style="max-width: 100%; font-size: 1.2rem; line-height: 1.6; opacity: 0.85;">This project helped clarify that the future of desktop experience is not just visual customization. It is about <strong>reducing friction</strong> between what users want and what the system requires.</p>
+                </div>
+            </section>
+
+        </main>
+    </div>
+
+    <!-- Global Footer -->
+    <footer class="site-footer is-minimal">
+        <div class="footer-bottom">
+            <div class="footer-left">
+                <p>&copy; 2026 Ella Zhou. All rights reserved.</p>
+            </div>
+            <div class="footer-right">
+                <a href="https://www.linkedin.com/in/xinyi-zhou-ella/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+                <a href="mailto:ellazhou2004@gmail.com">Email</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="assets/js/nav.js"></script>
+    <script>
+        // --- Generation Simulator Script ---
+        const simulatorData = [
+            {
+                prompt: '"Create a minimalist clock widget with a pixel cat that I can interact with as it walks."',
+                gif: 'assets/images/cat_widget.gif',
+                status: 'Completed'
+            },
+            {
+                prompt: '"I want a sifi-style focus widget with transparent background."',
+                gif: 'assets/images/sifi_widget.gif',
+                status: 'Completed'
+            }
+        ];
+
+        let currentIndex = 0;
+        let progress = 0;
+        let isTransitioning = false;
+        const interval = 8000; // 8 seconds per slide
+
+        const promptEl = document.getElementById('promptText');
+        const gifEl = document.getElementById('resultGif');
+        const dots = document.querySelectorAll('.control-dot');
+
+        function updateSimulator(index) {
+            if (isTransitioning) return;
+            isTransitioning = true;
+            currentIndex = index;
+
+            // Update dots
+            dots.forEach((dot, i) => dot.classList.toggle('active', i === index));
+
+            // Fade out current content
+            promptEl.classList.add('fading');
+            gifEl.classList.remove('active');
+            
+            setTimeout(() => {
+                // Change Data
+                promptEl.innerText = simulatorData[index].prompt;
+                gifEl.src = simulatorData[index].gif + '?t=' + Date.now(); // Cache busting for gif restart
+
+                // Fade in new content
+                promptEl.classList.remove('fading');
+                gifEl.classList.add('active');
+                
+                isTransitioning = false;
+            }, 500);
+        }
+
+        // Auto-switch timer (invisible progress)
+        let simInterval = setInterval(() => {
+            if (isTransitioning) return;
+            updateSimulator((currentIndex + 1) % simulatorData.length);
+        }, interval);
+
+        // Manual controls
+        dots.forEach((dot, i) => {
+            dot.addEventListener('click', () => {
+                clearInterval(simInterval);
+                updateSimulator(i);
+                // Restart timer
+                simInterval = setInterval(() => {
+                    if (isTransitioning) return;
+                    updateSimulator((currentIndex + 1) % simulatorData.length);
+                }, interval);
+            });
+        });
+    </script>
+</body>
+</html>
